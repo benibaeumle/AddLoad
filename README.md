@@ -33,6 +33,28 @@ streamlit run app.py
 
 Open [http://localhost:8501](http://localhost:8501) in your browser.
 
+### Initialise GitHub Spec-Kit (optional)
+
+Requires [`uv`](https://github.com/astral-sh/uv). Replace `vX.Y.Z` with the [latest release tag](https://github.com/github/spec-kit/releases).
+
+```bash
+# Install the Specify CLI (once)
+uv tool install specify-cli --from git+https://github.com/github/spec-kit.git@vX.Y.Z
+
+# Initialise Spec-Kit in this project
+specify init  --here --ai windsurf
+```
+
+Then use the slash commands in your AI assistant to drive spec-driven development:
+
+| Command | Purpose |
+|---|---|
+| `/speckit.constitution` | Establish project principles |
+| `/speckit.specify` | Write a feature spec |
+| `/speckit.plan` | Generate an implementation plan |
+| `/speckit.tasks` | Break the plan into tasks |
+| `/speckit.implement` | Execute all tasks |
+
 ## Project structure
 
 ```
