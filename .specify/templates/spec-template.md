@@ -113,3 +113,25 @@
 - **SC-002**: [Measurable metric, e.g., "System handles 1000 concurrent users without degradation"]
 - **SC-003**: [User satisfaction metric, e.g., "90% of users successfully complete primary task on first attempt"]
 - **SC-004**: [Business metric, e.g., "Reduce support tickets related to [X] by 50%"]
+
+### Performance Acceptance Criteria *(mandatory — Constitution Principle IV)*
+
+<!--
+  ACTION REQUIRED: Declare concrete performance targets. These MUST be defined here
+  during design, not post-implementation. Benchmarks must be committed alongside code.
+-->
+
+- **PERF-001**: p95 response time MUST be ≤ [X ms] under [Y concurrent users / load condition].
+- **PERF-002**: Memory usage MUST NOT exceed [X MB] under peak load.
+- **PERF-003**: [Throughput target, e.g., "System MUST process ≥ N requests/second"]
+- **PERF-004**: No resource leaks (memory, file handles, connections) detectable after [soak test duration].
+
+### UX Consistency Criteria *(mandatory — Constitution Principle III)*
+
+<!--
+  ACTION REQUIRED: Confirm that all user-facing surfaces are consistent with existing patterns.
+-->
+
+- **UX-001**: All terminology and interaction patterns MUST match the existing style guide.
+- **UX-002**: Error messages MUST be human-readable and actionable (no raw stack traces).
+- **UX-003**: All interactive elements MUST meet WCAG 2.1 AA accessibility standards.

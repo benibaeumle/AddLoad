@@ -50,7 +50,10 @@ description: "Task list template for feature implementation"
 
 - [ ] T001 Create project structure per implementation plan
 - [ ] T002 Initialize [language] project with [framework] dependencies
-- [ ] T003 [P] Configure linting and formatting tools
+- [ ] T003 [P] Configure linting and formatting tools (Constitution I: Code Quality)
+- [ ] T004 [P] Configure test runner and enforce ≥80% coverage threshold (Constitution II: Testing Standards)
+- [ ] T005 [P] Set up benchmark harness for performance-sensitive paths (Constitution IV: Performance)
+- [ ] T006 [P] Document UX style guide entry-point or link existing one (Constitution III: UX Consistency)
 
 ---
 
@@ -151,8 +154,11 @@ Examples of foundational tasks (adjust based on your project):
 **Purpose**: Improvements that affect multiple user stories
 
 - [ ] TXXX [P] Documentation updates in docs/
-- [ ] TXXX Code cleanup and refactoring
-- [ ] TXXX Performance optimization across all stories
+- [ ] TXXX Code cleanup and refactoring — enforce SRP, remove dead code (Constitution I: Code Quality)
+- [ ] TXXX Verify all public APIs and non-trivial functions have docstrings (Constitution I: Code Quality)
+- [ ] TXXX Confirm test coverage ≥80%; annotate deliberate exclusions with `# nocover` (Constitution II: Testing Standards)
+- [ ] TXXX Run and commit benchmark results for all declared PERF-* criteria (Constitution IV: Performance)
+- [ ] TXXX UX consistency review: verify terminology, error messages, and WCAG 2.1 AA compliance (Constitution III: UX Consistency)
 - [ ] TXXX [P] Additional unit tests (if requested) in tests/unit/
 - [ ] TXXX Security hardening
 - [ ] TXXX Run quickstart.md validation

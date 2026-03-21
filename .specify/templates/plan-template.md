@@ -31,7 +31,15 @@
 
 *GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
 
-[Gates determined based on constitution file]
+Confirm each gate is satisfied before proceeding. Document any violation in the
+Complexity Tracking table.
+
+| # | Principle | Gate Question | Status |
+|---|-----------|---------------|--------|
+| I | Code Quality | Does every function have a single responsibility, docstrings, and pass linting? | ☐ PASS / ☐ VIOLATION |
+| II | Testing Standards | Are tests written before or alongside implementation? Is 80% coverage maintained? | ☐ PASS / ☐ VIOLATION |
+| III | UX Consistency | Are all user-facing surfaces (UI, CLI, API, errors) consistent with existing patterns and WCAG 2.1 AA? | ☐ PASS / ☐ VIOLATION |
+| IV | Performance Requirements | Are performance acceptance criteria (latency, throughput, memory) declared in the spec? Are benchmarks committed? | ☐ PASS / ☐ VIOLATION |
 
 ## Project Structure
 
