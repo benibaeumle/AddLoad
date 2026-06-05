@@ -46,11 +46,11 @@ def test_bess_power_constraints(slp_net_load):
     result = BESSSimulator.simulate(params, slp_net_load)
 
     assert result.shape == (35040,)
-    assert np.all(result <= params.max_discharge_power_kw + 1e-6), (
-        f"Discharge exceeded: max={result.max():.4f}"
+    assert np.all(result <= params.max_charge_power_kw + 1e-6), (
+        f"Charge exceeded: max={result.max():.4f}"
     )
-    assert np.all(result >= -params.max_charge_power_kw - 1e-6), (
-        f"Charge exceeded: min={result.min():.4f}"
+    assert np.all(result >= -params.max_discharge_power_kw - 1e-6), (
+        f"Discharge exceeded: min={result.min():.4f}"
     )
 
 

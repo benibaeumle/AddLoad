@@ -56,11 +56,15 @@ def test_power_limits_respected():
     params = _default_params(
         max_charge_power_kw=20.0,
         max_discharge_power_kw=30.0,
+        peak_shaving_threshold_kw=25.0,
     )
-    net = _flat_net_load(50.0)
+    net = np.tile(
+        np.concatenate([np.full(16, 10.0), np.full(16, 50.0)]),
+        35040 // 32,
+    ).astype(float)
     result = BESSSimulator.simulate(params, net)
-    assert np.all(result <= 30.0 + 1e-6)
-    assert np.all(result >= -20.0 - 1e-6)
+    assert np.all(result <= 20.0 + 1e-6)
+    assert np.all(result >= -30.0 - 1e-6)
 
 
 def test_eigenverbrauch_strategy():
@@ -76,10 +80,10 @@ def test_arbitrage_strategy():
     result = BESSSimulator.simulate(params, net)
     assert result.shape == (35040,)
     slot_3am = 12
-    assert result[slot_3am] <= 0.0 + 1e-6
+    assert result[slot_3am] >= 0.0 - 1e-6
 
     slot_6pm = 72
-    assert result[slot_6pm] >= 0.0 - 1e-6
+    assert result[slot_6pm] <= 0.0 + 1e-6
 
 
 def test_peak_shaving_auto_threshold():
@@ -101,5 +105,5 @@ def test_peak_shaving_nonzero_output():
     )
     result = BESSSimulator.simulate(params, net)
     assert np.any(result != 0.0), "Peak shaving should produce non-zero dispatch"
-    assert np.any(result > 0.0), "Peak shaving should discharge when load > threshold"
-    assert np.any(result < 0.0), "Peak shaving should charge when load < threshold"
+    assert np.any(result < 0.0), "Peak shaving should discharge when load > threshold"
+    assert np.any(result > 0.0), "Peak shaving should charge when load < threshold"
